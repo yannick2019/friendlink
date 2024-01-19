@@ -1,7 +1,7 @@
 import axios from "axios";
 import { SetPosts } from "../redux/postSlice";
 
-const API_URL = "http://localhost:8000";
+const API_URL = "https://friendlink-pi.vercel.app";
 
 export const API = axios.create({
   baseURL: API_URL,
@@ -16,9 +16,6 @@ export const apiRequest = async ({ url, token, data, method }) => {
       headers: {
         "Content-Type": "application/json",
         Authorization: token ? `Bearer ${token}` : "",
-        origin: "http://localhost:3000",
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        allowedHeaders: ["Content-Type", "Authorization"]
       },
     });
 
