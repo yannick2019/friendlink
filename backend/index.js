@@ -36,8 +36,6 @@ app.use(router);
 // Error middleware
 app.use(errorMiddleware);
 
-/*
 app.listen(PORT, () => {
   console.log(`Dev server running on port ${PORT}`);
 });
-*/
