@@ -1,7 +1,7 @@
 import axios from "axios";
 import { SetPosts } from "../redux/postSlice";
 
-const API_URL = "https://friendlink-pi.vercel.app";
+const API_URL = "http://localhost:8000";
 
 export const API = axios.create({
   baseURL: API_URL,
