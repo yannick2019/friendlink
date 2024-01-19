@@ -1,6 +1,8 @@
 ﻿# FriendLink
 
-A facebook-style web app.
+A facebook-style web app. The web app is deployed on [Vercel.com](https://vercel.com/).
+
+See it live [here](https://friendlink-client.vercel.app/).
 
 This project was bootstrapped with [Create React App](https://create-react-app.dev/).
 
