@@ -25,7 +25,7 @@ dbConnection();
 
 app.use(helmet());
 app.use(cors({
-  origin: ["http://localhost:3000"],
+  origin: ["https://friendlink-client.vercel.app"],
   methods: ["POST", "GET", "PUT"],
   credentials: true
 }));
