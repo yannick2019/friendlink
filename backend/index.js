@@ -4,7 +4,6 @@ import cors from "cors";
 import morgan from "morgan";
 import bodyParser from "body-parser";
 import path from "path";
-import fs from "fs";
 
 // Securty packages
 import helmet from "helmet";
@@ -18,19 +17,7 @@ dotenv.config();
 
 const app = express();
 
-//app.use(express.static(path.join(__dirname, "views/build")));
-
-const staticDir = path.join(__dirname, "views/build");
-
-// Vérifiez si le répertoire staticDir existe et contient index.html
-fs.access(path.join(staticDir, 'index.html'), fs.constants.F_OK, (err) => {
-  if (err) {
-    console.error(`Le fichier index.html n'existe pas dans le répertoire ${staticDir} ou n'est pas accessible.`);
-  } else {
-    console.log(`Le fichier index.html existe dans le répertoire ${staticDir}.`);
-    app.use(express.static(staticDir));
-  }
-});
+app.use(express.static(path.join(__dirname, "views/build")));
 
 const PORT = process.env.PORT || 8800;
 
