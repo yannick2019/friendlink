@@ -16,6 +16,9 @@ export const apiRequest = async ({ url, token, data, method }) => {
       headers: {
         "Content-Type": "application/json",
         Authorization: token ? `Bearer ${token}` : "",
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ["Content-Type", "Authorization"]
       },
     });
 
