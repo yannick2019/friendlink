@@ -25,7 +25,7 @@ dbConnection();
 
 app.use(helmet());
 app.use(cors({
-  origin: "*",
+  origin: "http://localhost:3000",
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
@@ -40,7 +40,8 @@ app.use(router);
 // Error middleware
 app.use(errorMiddleware);
 
-
+/*
 app.listen(PORT, () => {
   console.log(`Dev server running on port ${PORT}`);
 });
+*/
