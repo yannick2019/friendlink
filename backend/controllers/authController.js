@@ -1,6 +1,6 @@
 import Users from "../models/userModel.js";
 import { compareString, createJWT, hashString } from "../utils/index.js";
-import { sendVerificationEmail } from "../utils/sendEmail.js";
+//import { sendVerificationEmail } from "../utils/sendEmail.js";
 
 export const register = async (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
@@ -28,7 +28,7 @@ export const register = async (req, res, next) => {
     });
 
     // Send email varification to user
-    sendVerificationEmail(user, res);
+    //sendVerificationEmail(user, res);
   } catch (error) {
     console.log(error);
     res.status(404).json({ message: error.message });
