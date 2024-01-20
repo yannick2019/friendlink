@@ -50,7 +50,8 @@ export const sendVerificationEmail = async (user, res) => {
         .then(() => {
           res.status(201).send({
             success: "PENDING",
-            message: "Verification email has been sent to your account. Check your email for further instructions"
+            //message: "Verification email has been sent to your account. Check your email for further instructions",
+            message: "Registration success. You will be redirect to login page!",
           });
         })
         .catch((err) => {

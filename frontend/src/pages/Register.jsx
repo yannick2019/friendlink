@@ -38,7 +38,7 @@ const Register = () => {
         setErrMsg(res);
         setTimeout(() => {
           window.location.replace("/login");
-        }, 5000);
+        }, 3000);
       }
 
       setIsSubmitting(false);
