@@ -10,6 +10,7 @@ import { CustomButton, Loading, TextInput } from "../components";
 import { BgImage } from "../assets";
 import { UserLogin } from "../redux/userSlice";
 import { apiRequest } from "../utils";
+import CookieConsent from "react-cookie-consent";
 
 const Login = () => {
   const {
@@ -176,6 +177,16 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <CookieConsent
+        location="bottom"
+        buttonText="I agree"
+        cookieName="myAwesomeCookieName2"
+        style={{ background: "#2B373B" }}
+        buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+        expires={150}
+      >
+        This site uses cookies to improve user experience.{" "}
+      </CookieConsent>
     </div>
   );
 };
