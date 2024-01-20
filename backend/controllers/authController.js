@@ -54,11 +54,11 @@ export const login = async (req, res, next) => {
       next("Invalid email or password");
       return;
     }
-
+    /*
     if (!user?.verified) {
       next("User email is not verified. Check your email account and verify your email");
       return;
-    }
+    }  */
 
     // compare password
     const isMatch = await compareString(password, user?.password);

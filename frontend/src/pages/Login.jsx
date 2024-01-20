@@ -100,14 +100,14 @@ const Login = () => {
               })}
               error={errors.password ? errors.password?.message : ""}
             />
-
+            {/*
             <Link
               to="/reset-password"
               className="text-sm text-right text-orange font-semibold"
             >
               Forgot Password ?
             </Link>
-
+            */}
             {errMsg?.message && (
               <span
                 className={`text-sm ${
