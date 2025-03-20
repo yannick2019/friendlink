@@ -23,6 +23,21 @@ const PORT = process.env.PORT || 8800;
 
 //dbConnection();
 
+app.use((req, res, next) =>
+{
+  res.header("Access-Control-Allow-Origin", "https://friendlink-client.vercel.app");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
+
+  if (req.method === "OPTIONS")
+  {
+    return res.status(200).end();
+  }
+
+  next();
+});
+
 app.use(cors({
   origin: ["https://friendlink-client.vercel.app", "http://localhost:3000"],
   methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],
