@@ -21,14 +21,19 @@ app.use(express.static(path.join(__dirname, "views/build")));
 
 const PORT = process.env.PORT || 8800;
 
-dbConnection();
+//dbConnection();
 
-app.use(helmet());
 app.use(cors({
-  origin: ["https://friendlink-client.vercel.app"],
-  methods: ["POST", "GET", "PUT"],
-  credentials: true
+  origin: ["https://friendlink-client.vercel.app", "http://localhost:3000"],
+  methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
+
+app.use(helmet({
+  crossOriginResourcePolicy: { policy: "cross-origin" }
+}));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json({ limit: "10mb" }));
@@ -40,6 +45,22 @@ app.use(router);
 // Error middleware
 app.use(errorMiddleware);
 
-app.listen(PORT, () => {
+// Check connection to database before starting server
+dbConnection()
+  .then(() =>
+  {
+    app.listen(PORT, () =>
+    {
+      console.log(`Dev server running on port ${PORT}`);
+    });
+  })
+  .catch(err =>
+  {
+    console.error('Failed to connect to database:', err);
+    process.exit(1);
+  });
+
+app.listen(PORT, () =>
+{
   console.log(`Dev server running on port ${PORT}`);
 });
